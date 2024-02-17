@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSI Church GKM Colony</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      padding: 20px;
+      position: relative;
+    }
+
+    .calendar {
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    .calendar table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .calendar th, .calendar td {
+      text-align: center;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .calendar th {
+      background-color: #f2f2f2;
+    }
+
+    .calendar td {
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .about, .contact {
+      background-color: #f0f0f0;
+      padding: 20px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .about img, .contact img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .about-content, .contact-content {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>CSI Church GKM Colony</h1>
+  </div>
+  <div class="container">
+    <div class="img-container">
+      <img src="c:\Users\prave\OneDrive\Desktop\ch\ch-1.jpg" alt="Church Image 1">
+    </div>
+
+    <div class="about" onclick="toggleContent('about')">
+      <h2>About</h2>
+      <p class="about-content">CSI Christ Church, GKM Colony Has enrich and powerful environment</p>
+    </div>
+
+    <div class="contact" onclick="toggleContent('contact')">
+      <h2>Contact</h2>
+      <p class="contact-content">
+        Address: CSI Christ Church, GKM Colony 24th streeth, Chennai-83<br>
+        Email: csi.christ.church.chennai@gmail.com<br>
+        Phone: <a href="tel:+916374468550">+91 6374468550</a> 
+        Location: <a href="https://www.google.com/maps/place/CSI+Christ+Church,+GKM+Colony/@13.114034,80.2169229,18z/data=!4m6!3m5!1s0x3a5265536952dc53:0xe2a6b354bf4097d1!8m2!3d13.1130884!4d80.2202971!16s%2Fg%2F11sxwn1r9c?entry=ttu">Church's Location</a>
+      </p>
+    </div>
+
+    <div class="calendar">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="7">February 2024</th>
+          </tr>
+          <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+        </thead>
+        <tbody id="calendar-body">
+        </tbody>
+      </table>
+    </div>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Set Notification</h2>
+        <p>Enter your email to receive notification:</p>
+        <input type="email" id="email">
+        <button onclick="setNotification()">Notify me</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="calendar">
+    </div>
+  </div>
+  <div class="container">
+    <div class="calendar">
+    </div>
+  
+    <div class="img-box">
+      <img src="c:\Users\prave\OneDrive\Desktop\ch\ch-3.png" alt="_">
+    </div>
+  
+    <p>"Discover the Sunday class at CSI Christ Church in GKM Colony—where spiritual growth meets mental well-being! Join us as we strengthen both our spiritual journey and mental health together. Every Sunday, experience a nurturing environment that fosters growth and upliftment. See you there!"</p>
+  
+    <div class="gallery">
+      <img src="c:\Users\prave\OneDrive\Desktop\ch\download.jpeg" alt="Image 1">
+      <p>
+        "Explore our vibrant youth fellowship! Join us after church hours for engaging activities, meaningful discussions, and a supportive community. Whether you're seeking spiritual guidance, friendship, or simply a place to belong, our youth fellowship is the perfect opportunity to connect, grow, and thrive together. Don't miss out—come and be a part of something special!"</p>
+      <img src="c:\Users\prave\OneDrive\Desktop\ch\download (1).jpeg" alt="Image 3">
+      <p>"Explore the enriching men's fellowship at CSI Christ Church in GKM Colony! Engage in meaningful discussions, forge lasting friendships, and grow spiritually together. Join us for empowering sessions dedicated to nurturing your faith and fostering a strong sense of community. Don't miss out on this opportunity to connect with fellow men on your journey of faith!"</p>
+      <img src="c:\Users\prave\OneDrive\Desktop\ch\download (2).jpeg" alt="Image 3">
+      <p>
+        "Discover the warmth and strength of our women's fellowship at CSI Christ Church in GKM Colony! Join us for uplifting gatherings where we support each other, share wisdom, and deepen our spiritual roots. Whether you're seeking encouragement, friendship, or spiritual growth, our fellowship provides a nurturing space just for you. Come be a part of our community where women empower each other to thrive in faith and life."</p>
+    </div>
+  </div>
+
+  <script>
+    const calendarBody = document.getElementById('calendar-body');
+    const modal = document.getElementById('myModal');
+
+    let currentImageIndex = 0;
+
+    function toggleContent(type) {
+      const content = document.querySelector(`.${type}-content`);
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function generateCalendar() {
+      calendarBody.innerHTML = '';
+
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = date.getMonth();
+
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const firstDayOfMonth = new Date(year, month, 1).getDay();
+
+      let dateCounter = 1;
+
+      for (let i = 0; i < 6; i++) {
+        const row = document.createElement('tr');
+
+        for (let j = 0; j < 7; j++) {
+          const cell = document.createElement('td');
+
+          if (i === 0 && j < firstDayOfMonth) {
+            const textNode = document.createTextNode('');
+            cell.appendChild(textNode);
+          } else if (dateCounter > daysInMonth) {
+            break;
+          } else {
+            const textNode = document.createTextNode(dateCounter);
+            cell.appendChild(textNode);
+            cell.addEventListener('click', function() {
+              openModal();
+            });
+            dateCounter++;
+          }
+
+          row.appendChild(cell);
+        }
+
+        calendarBody.appendChild(row);
+      }
+    }
+
+    function openModal() {
+      modal.style.display = 'block';
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    function setNotification() {
+      const email = document.getElementById('email').value;
+      alert(`Notification set for ${email}`);
+      closeModal();
+    }
+
+    generateCalendar();
+  </script>
+</body>
+</html>
